@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { submitEntry, removeEntry } from '../utils/api';
 import UdaciSlider from './UdaciSlider';
 import UdaciSteppers from './UdaciSteppers';
 import DateHeader from './DateHeader';
@@ -41,6 +42,7 @@ export default class AddEntry extends Component {
     // Navigate to Home
 
     // Save to 'DB'
+    submitEntry({ key, entry });
 
     // clear local notification
   };
@@ -80,6 +82,7 @@ export default class AddEntry extends Component {
     // Route to Home
 
     // Update 'DB'
+    removeEntry(key);
   };
 
   render() {
