@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import UdaciSlider from './UdaciSlider';
 import UdaciSteppers from './UdaciSteppers';
 import DateHeader from './DateHeader';
 import TextButton from './TextButton';
 import { getMetricMetaInfo, timeToString } from '../utils/helpers';
 import { Ionicons } from 'react-native-vector-icons';
+
+function SubmitBtn({ onPress }) {
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Text>SUBMIT</Text>
+    </TouchableOpacity>
+  );
+}
 
 export default class AddEntry extends Component {
   state = {
@@ -14,6 +22,27 @@ export default class AddEntry extends Component {
     swim: 0,
     sleep: 0,
     eat: 0
+  };
+
+  submit = () => {
+    const key = timeToString();
+    const entry = this.state;
+
+    // Update Redux
+
+    this.setState(() => ({
+      run: 0,
+      bike: 0,
+      swim: 0,
+      sleep: 0,
+      eat: 0
+    }));
+
+    // Navigate to Home
+
+    // Save to 'DB'
+
+    // clear local notification
   };
 
   increment = metric => {
@@ -56,8 +85,7 @@ export default class AddEntry extends Component {
   render() {
     const metaInfo = getMetricMetaInfo();
 
-    if (1) {
-      // if (this.state.alreadyLogged) {
+    if (this.state.alreadyLogged) {
       return (
         <View>
           <Ionicons name="ios-happy-outline" size={100} />
@@ -94,6 +122,7 @@ export default class AddEntry extends Component {
             </View>
           );
         })}
+        <SubmitBtn onPress={this.submit} />
       </View>
     );
   }
