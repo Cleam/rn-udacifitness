@@ -1,10 +1,15 @@
 import React from 'react';
 import { View } from 'react-native';
+// import {
+//   FontAwesome,
+//   MaterialIcons,
+//   MaterialCommunityIcons
+// } from '@expo/vector-icons';
 import {
   FontAwesome,
   MaterialIcons,
   MaterialCommunityIcons
-} from '@expo/vector-icons';
+} from 'react-native-vector-icons';
 import { black } from './colors';
 
 export function isBetween(num, x, y) {
