@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import UdaciSlider from './UdaciSlider';
 import UdaciSteppers from './UdaciSteppers';
 import DateHeader from './DateHeader';
-import { getMetricMetaInfo } from '../utils/helpers';
+import TextButton from './TextButton';
+import { getMetricMetaInfo, timeToString } from '../utils/helpers';
+import { Ionicons } from 'react-native-vector-icons';
 
 export default class AddEntry extends Component {
   state = {
@@ -42,8 +44,29 @@ export default class AddEntry extends Component {
     }));
   };
 
+  reset = () => {
+    const key = timeToString();
+    // Update Redux
+
+    // Route to Home
+
+    // Update 'DB'
+  };
+
   render() {
     const metaInfo = getMetricMetaInfo();
+
+    if (1) {
+      // if (this.state.alreadyLogged) {
+      return (
+        <View>
+          <Ionicons name="ios-happy-outline" size={100} />
+          <Text>You already logged your information for today.</Text>
+          <TextButton onPress={this.reset}>reset</TextButton>
+        </View>
+      );
+    }
+
     return (
       <View>
         {/* {getMetricMetaInfo('bike').getIcon()} */}
