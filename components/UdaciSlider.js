@@ -21,7 +21,7 @@ export default function UdaciSlider({ max, unit, step, value, onChange }) {
   );
 }
 
-const styles = Stylesheet.create({
+const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     flex: 1,
